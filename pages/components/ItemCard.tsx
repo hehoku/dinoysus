@@ -13,32 +13,34 @@ const ItemCard = () => {
       </div>
       <p>Product Title</p>
       <div className="rating">
-        <input
-          type="radio"
-          name="rating-2"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          className="mask mask-star-2 bg-orange-400"
-          defaultChecked
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          className="mask mask-star-2 bg-orange-400"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          className="mask mask-star-2 bg-orange-400"
-        />
+        <form action="">
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+            defaultChecked
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+        </form>
       </div>
       <p>Description about the product: quis nostrud exercitation ullamco </p>
       <div className="flex flex-row gap-2">
