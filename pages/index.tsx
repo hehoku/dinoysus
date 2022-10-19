@@ -17,6 +17,13 @@ const Home: NextPage = () => {
         <ItemCard />
         <ItemCard />
       </div>
+      <div className="my-20 flex flex-col text-cyan-500">
+        <p className="text-center text-lg font-bold">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum,
+          officia.
+        </p>
+        <p className="self-end text-lg font-bold">Lorem ipsum</p>
+      </div>
     </div>
   );
 };
