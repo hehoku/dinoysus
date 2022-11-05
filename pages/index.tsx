@@ -1,9 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Key } from "react";
 import Header from "./components/Header";
 import ItemCard from "./components/ItemCard";
 
-const Home: NextPage = () => {
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/hello", {
+    method: "POST",
+  });
+  const data = await res.json();
+
+  return {
+    props: { data },
+  };
+}
+
+interface HomePropsType {
+  data: any;
+}
+
+const Home = (props: HomePropsType) => {
+  const dbContent = props.data.response.results;
   return (
     <div className="flex flex-col items-center">
       <Head>
@@ -12,10 +29,23 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="mt-10 flex w-4/5 flex-row items-center justify-center">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+      <div className="mt-10 flex w-4/5 flex-row items-center justify-center gap-10">
+        {dbContent.map(
+          (item: { properties: any; id: Key | null | undefined }) => {
+            return (
+              <ItemCard
+                title={item.properties.Title.title[0].text.content}
+                score={item.properties.score.number}
+                description={
+                  item.properties.Discription.rich_text[0].text.content
+                }
+                type={item.properties.Type.select.name}
+                cover={item.properties.url.url}
+                key={item.id}
+              />
+            );
+          }
+        )}
       </div>
       <div className="my-20 flex flex-col text-cyan-500">
         <p className="text-center text-lg font-bold">
