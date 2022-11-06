@@ -10,14 +10,15 @@ interface ItemCardPropsType {
 
 const ItemCard = (props: ItemCardPropsType) => {
   return (
-    <div className="flex max-w-sm flex-col gap-4">
-      <div className="w-full">
+    <div className="flex max-w-sm flex-col gap-2">
+      <div className="relative h-52 w-80">
         <Image
           src={props.cover}
           alt="img"
           width={300}
           height={200}
-          layout="intrinsic"
+          layout="responsive"
+          objectFit="cover"
         />
       </div>
       <p>{props.title}</p>
